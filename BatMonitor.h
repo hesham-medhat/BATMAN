@@ -3,11 +3,15 @@
 
 
 #include <zconf.h>
+#include <unordered_map>
+
 #include "BAT.h"
 
 class BatMonitor {
 private:
     static BatMonitor* instance;
+
+    std::unordered_map<char, pthread_cond_t*> condMap;
 
     /* Number of BATs currently waiting */
     int waiting;

@@ -1,6 +1,8 @@
 #include <pthread.h>
 #include "BatMonitor.h"
 
+BatMonitor* BatMonitor::instance;
+
 BatMonitor::BatMonitor() {
     pthread_mutex_init(&mutex, nullptr);
 
@@ -13,6 +15,11 @@ BatMonitor::BatMonitor() {
     pthread_cond_signal(&ePass);
     pthread_cond_signal(&wPass);
     pthread_cond_signal(&sPass);
+
+    condMap['n'] = &nPass;
+    condMap['e'] = &ePass;
+    condMap['w'] = &wPass;
+    condMap['s'] = &sPass;
 
     waiting = 0;
 }
