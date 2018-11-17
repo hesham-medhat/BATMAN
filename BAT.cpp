@@ -3,6 +3,6 @@
 int BAT::getId() { return id; }
 char BAT::getDirection() { return direction; }
 
-void execute() {
+void BAT::execute() {
     // TODO: Execution logic
 }

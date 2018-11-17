@@ -8,7 +8,7 @@ private:
     char direction;
 
 public:
-    BAT(const int &id, const char &direction) : id(id), direction(direction) { }
+    BAT(const int id, const char &direction) : id(id), direction(direction) { }
 
     void execute();
 
