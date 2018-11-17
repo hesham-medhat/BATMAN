@@ -30,26 +30,36 @@ BatMonitor* BatMonitor::getInstance() {
     return instance;
 }
 
-void BatMonitor::arrive(BAT &bat) {
+void BatMonitor::arrive(BAT &bat) { // TODO: Implement arrival
     pthread_mutex_lock(&mutex);
-    // TODO: Implement arrival
+
 
     check();
     pthread_mutex_unlock(&mutex);
 }
 
-void BatMonitor::cross(BAT &bat) {
+void BatMonitor::cross(BAT &bat) { // TODO: Implement cross
     pthread_mutex_lock(&mutex);
-    // TODO: Implement cross
+
 
     check();
     pthread_mutex_unlock(&mutex);
 }
 
-void BatMonitor::leave(BAT &bat) {
+
+void BatMonitor::leave(BAT &bat) { // TODO: Implement leave
     pthread_mutex_lock(&mutex);
-    // TODO: Implement leave
+
 
     check();
     pthread_mutex_unlock(&mutex);
+}
+
+BatMonitor::~BatMonitor() {
+    pthread_mutex_destroy(&mutex);
+
+    pthread_cond_destroy(&nPass);
+    pthread_cond_destroy(&ePass);
+    pthread_cond_destroy(&wPass);
+    pthread_cond_destroy(&sPass);
 }

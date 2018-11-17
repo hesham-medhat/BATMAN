@@ -35,6 +35,8 @@ public:
     void cross(BAT &bat);
     void leave(BAT &bat);
 
+    ~BatMonitor();
+
 };
 
 

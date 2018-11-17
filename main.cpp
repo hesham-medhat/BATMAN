@@ -2,6 +2,9 @@
 #include <cstring>
 
 #include "BAT.h"
+#include "BatMonitor.h"
+
+BatMonitor* monitor;
 
 void createBats(BAT* bat[], char* ss) {
     int i = 1;
@@ -43,7 +46,7 @@ int main(int argc, char* args[]) {
     pthread_t runner[bats + 1];
 
     /* Prepare mutex */
-    // TODO: Initialize monitor
+    monitor = BatMonitor::getInstance();
 
     /* Simulation */
     createBats(bat, ss);
@@ -52,7 +55,7 @@ int main(int argc, char* args[]) {
     /* Clean up */
     joinThreads(runner, bats);
     cleanupBats(bat, bats);
-    // TODO: Destroy monitor
+    free(monitor);
 
     return 0;
 }
