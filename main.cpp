@@ -17,8 +17,7 @@ void createBats(BAT* bat[], char* ss) {
 
 static void* runBat(void* batPtr) {
     BAT bat = *((BAT*) batPtr);
-    // TODO: Execute thread and simulate.
-
+    bat.execute();
     return nullptr;
 }
 
